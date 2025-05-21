@@ -1,0 +1,23 @@
+name: 'Send Build Webhook'
+description: 'Sends a signed webhook to trigger CI/CD rebuilds'
+author: 'bbilly1'
+inputs:
+  payload:
+    description: 'JSON payload to send'
+    required: true
+  secret_key:
+    description: 'Secret key used for HMAC'
+    required: true
+  api_endpoint:
+    description: 'The URL to send the webhook to'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        ./entrypoint.sh
+      shell: bash
+      env:
+        INPUT_PAYLOAD: ${{ inputs.payload }}
+        INPUT_SECRET_KEY: ${{ inputs.secret_key }}
+        INPUT_API_ENDPOINT: ${{ inputs.api_endpoint }}
