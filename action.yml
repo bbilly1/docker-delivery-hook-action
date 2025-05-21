@@ -14,6 +14,9 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - name: List current directory
+      run: ls -alh
+      shell: bash
     - run: entrypoint.sh
       shell: bash
       env:
