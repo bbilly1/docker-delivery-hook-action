@@ -14,8 +14,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: |
-        ./entrypoint.sh
+    - run: entrypoint.sh
       shell: bash
       env:
         INPUT_PAYLOAD: ${{ inputs.payload }}
