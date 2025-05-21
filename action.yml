@@ -19,9 +19,6 @@ runs:
       shell: bash
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
-    - name: List current directory
-      run: ls -alh
-      shell: bash
     - run: entrypoint.sh
       shell: bash
       env:
